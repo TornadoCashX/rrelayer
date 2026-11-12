@@ -10,7 +10,7 @@ networks:
         - raw: ${ETH_PRIVATE_KEY_2}
 
     provider_urls:
-      - ${ETH_RPC_URL}
+      - ${ETH_RPC_URL_1}
       - ${ETH_RPC_URL_2}
       - ${ETH_RPC_URL_3}
 
@@ -41,7 +41,7 @@ networks:
         - raw: ${BSC_PRIVATE_KEY_1}
 
     provider_urls:
-      - ${BSC_RPC_URL}
+      - ${BSC_RPC_URL_1}
       - ${BSC_RPC_URL_2}
 
     block_explorer_url: https://bscscan.com
