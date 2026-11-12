@@ -39,12 +39,10 @@ networks:
     signing_provider:
       private_keys:
         - raw: ${BSC_PRIVATE_KEY_1}
-        - raw: ${BSC_PRIVATE_KEY_2}
 
     provider_urls:
       - ${BSC_RPC_URL}
       - ${BSC_RPC_URL_2}
-      - ${BSC_RPC_URL_3}
 
     block_explorer_url: https://bscscan.com
     enable_sending_blobs: false
@@ -61,9 +59,6 @@ networks:
       - relayer: ${BSC_ADDRESS_1}
         keys:
           - ${BSC_API_KEY_1}
-      - relayer: ${BSC_ADDRESS_2}
-        keys:
-          - ${BSC_API_KEY_2}
 
 api_config:
   host: "0.0.0.0"
