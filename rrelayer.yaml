@@ -1,0 +1,52 @@
+name: relayer-service
+
+signing_provider:
+  private_keys:
+    - raw: ${RELAYER_PRIVATE_KEY}
+
+networks:
+  - name: ethereum
+    chain_id: 1
+    provider_urls:
+      - ${ETH_RPC_URL}
+    block_explorer_url: https://etherscan.io
+    enable_sending_blobs: false
+
+    gas_bump_blocks_every:
+      slow: 10
+      medium: 6
+      fast: 4
+      super_fast: 2
+
+    max_gas_price_multiplier: 4
+
+    api_keys:
+      - relayer: ${RELAYER_ADDRESS}
+        keys:
+          - ${BUSINESS_API_KEY}
+
+  - name: bsc
+    chain_id: 56
+    provider_urls:
+      - ${BSC_RPC_URL}
+    block_explorer_url: https://bscscan.com
+    enable_sending_blobs: false
+
+    gas_bump_blocks_every:
+      slow: 64
+      medium: 32
+      fast: 16
+      super_fast: 8
+
+    max_gas_price_multiplier: 4
+
+    api_keys:
+      - relayer: ${RELAYER_ADDRESS}
+        keys:
+          - ${BUSINESS_API_KEY}
+
+api_config:
+  host: "0.0.0.0"
+  port: 3000
+  authentication_username: ${RRELAYER_AUTH_USERNAME}
+  authentication_password: ${RRELAYER_AUTH_PASSWORD}
