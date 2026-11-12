@@ -1,14 +1,19 @@
 name: relayer-service
 
-signing_provider:
-  private_keys:
-    - raw: ${RELAYER_PRIVATE_KEY}
-
 networks:
   - name: ethereum
     chain_id: 1
+
+    signing_provider:
+      private_keys:
+        - raw: ${ETH_PRIVATE_KEY_1}
+        - raw: ${ETH_PRIVATE_KEY_2}
+
     provider_urls:
       - ${ETH_RPC_URL}
+      - ${ETH_RPC_URL_2}
+      - ${ETH_RPC_URL_3}
+
     block_explorer_url: https://etherscan.io
     enable_sending_blobs: false
 
@@ -21,14 +26,26 @@ networks:
     max_gas_price_multiplier: 4
 
     api_keys:
-      - relayer: ${RELAYER_ADDRESS}
+      - relayer: ${ETH_ADDRESS_1}
         keys:
-          - ${BUSINESS_API_KEY}
+          - ${ETH_API_KEY_1}
+      - relayer: ${ETH_ADDRESS_2}
+        keys:
+          - ${ETH_API_KEY_2}
 
   - name: bsc
     chain_id: 56
+
+    signing_provider:
+      private_keys:
+        - raw: ${BSC_PRIVATE_KEY_1}
+        - raw: ${BSC_PRIVATE_KEY_2}
+
     provider_urls:
       - ${BSC_RPC_URL}
+      - ${BSC_RPC_URL_2}
+      - ${BSC_RPC_URL_3}
+
     block_explorer_url: https://bscscan.com
     enable_sending_blobs: false
 
@@ -41,9 +58,12 @@ networks:
     max_gas_price_multiplier: 4
 
     api_keys:
-      - relayer: ${RELAYER_ADDRESS}
+      - relayer: ${BSC_ADDRESS_1}
         keys:
-          - ${BUSINESS_API_KEY}
+          - ${BSC_API_KEY_1}
+      - relayer: ${BSC_ADDRESS_2}
+        keys:
+          - ${BSC_API_KEY_2}
 
 api_config:
   host: "0.0.0.0"
