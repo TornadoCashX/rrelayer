@@ -3,6 +3,7 @@ name: relayer-service
 networks:
   - name: ethereum
     chain_id: 1
+    confirmations: ${ETH_CONFIRMATIONS}
 
     signing_provider:
       private_keys:
@@ -35,6 +36,7 @@ networks:
 
   - name: bsc
     chain_id: 56
+    confirmations: ${BSC_CONFIRMATIONS}
 
     signing_provider:
       private_keys:
